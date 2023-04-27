@@ -169,3 +169,31 @@ html, body {
   transform: scale(1.25);
   transition: all 0.3s ease 0s;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .whiteSpan {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .redbox {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .headshot {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .bio {
+    font-size: 1rem;
+  }
+}

@@ -70,17 +70,6 @@ h1, h2{
   gap: 1rem;
 }
 
-@media (min-width: 640px) {
-  .cardRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 768px) {
-  .cardRow {
-    gap: 2rem;
-  }
-}
 
 .card {
   max-width: 20rem;
@@ -178,40 +167,36 @@ h1, h2{
   transition: all 0.3s ease 0s;
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .whiteSpan {
-    font-size: 1.5rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .redbox {
-    margin-top: 2rem;
-    padding: 1rem;
-  }
-
-  .headshot {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .bio {
-    font-size: 1rem;
-  }
+.skill-icon{
+  height: 6rem;
+  width: 6rem;
 }
 
-.skill-icon{
-  height: 3rem;
-  width: 3rem;
+.blurred-icon{
+  filter: blur(2px);
+  filter: grayscale(50%);
 }
 
 .svg-class-name {
   width: 100%;
   height: 100%;
+}
+
+.box{
+  height: 6rem;
+  width: 6rem;
+  background: red;
+}
+
+.skill-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.5s ease;
+}
+
+.flex-row {
+  transition: all 0.5s ease;
 }

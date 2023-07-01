@@ -1,36 +1,27 @@
 import React, { useState, useRef } from 'react';
 import { ReactSVG } from 'react-svg';
+import Tilt from 'react-parallax-tilt';
+import Image from 'next/image';
+import { useSpring, animated } from '@react-spring/web'
 
-function SkillIcon({ skill, select }) {
-  const [perspective, setPerspective] = useState({ x: 0, y: 0 });
-  const svgRef = useRef(null);
+function SkillIcon({ skill, onClick }) {
+  const [blurred, setBlurred] = useState(true)
 
-  const handleMouseMove = (e) => {
-    if (svgRef.current) {
-      const rect = svgRef.current.getBoundingClientRect();
-      setPerspective({
-        x: (rect.width / 2 - (e.clientX - rect.left)) / 25,
-        y: (rect.height / 2 - (e.clientY - rect.top)) / 25
-      });
-    }
-  };
-  
+  const style = useSpring({
+    filter: blurred ? 'blur(2px) grayscale(50%)' :  'blur(0px) grayscale(0%)',
+    config: {duration: 200}
+  })
 
   return (
-    <div
-      className="skill-icon"
-      onClick={() => select(skill)}
-      onMouseMove={handleMouseMove}
-      style={{ transform: `rotateY(${perspective.x}deg) rotateX(${perspective.y}deg)` }}
-    >
-      <ReactSVG 
-      beforeInjection={(svg) => {
-        svg.classList.add('svg-class-name')
-        svg.setAttribute('style', 'width: 100%; height: 100%')
-        svgRef.current = svg;
-      }}
-      src={skill.icon} />
-    </div>
+    <animated.div style={style} onMouseEnter={()=>setBlurred(false)} onMouseLeave={()=>setBlurred(true)} onClick={onClick}>
+      <Tilt tiltReverse={false} perspective={500} reset={true} scale={1.3}  transitionSpeed={2500} className='skill-icon'>
+        <img
+          src={skill.icon}
+          />
+      {/* <div className='box'/> */}
+      </Tilt>
+    </animated.div>
+    
   );
 }
 

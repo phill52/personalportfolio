@@ -103,8 +103,8 @@
 
             <div className='flex lg:flex-row flex-col-reverse items-center space-x-4 lg:space-x-8'>
                 <h1 className='text-raisin'>Hi, <br/> 
-                I'm Phillip🦈 <br/>
-                I'm a <AnimatedText phrases={phrases}/></h1>
+                I&apos;m Phillip🦈 <br/>
+                I&apos;m a <AnimatedText phrases={phrases}/></h1>
                 <Image src='/images/panerine.jpg' height={300} width={300} className="headshot" alt="Headshot of Phillip Anerine"/>
             </div>
                 

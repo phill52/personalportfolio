@@ -30,7 +30,7 @@
     
 
     const phrases = useMemo(()=> 
-    ["Computer Science Student", 1000, "Tech Enthusiast", 1000, "Software Engineer💻"]
+    ["Computer Science Student", "Tech Enthusiast", "Software Engineer💻"]
     ,[])
     const [selectedSkill, setSelectedSkill] = useState(null);
     const skills = [

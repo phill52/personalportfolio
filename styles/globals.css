@@ -1,13 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
 
 
 html, body {
   overflow: visible;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
+  z-index: 10;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 
 .main {
   height: 100%;
@@ -28,9 +47,6 @@ html, body {
   width:100%;
 }
 
-h1, h2{
-  font-family: 'Times New Roman', Times, serif
-}
 
 .downarrow {
   align-self: center;
@@ -88,7 +104,7 @@ h1, h2{
 
 .title {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.025em;
   margin: 0;
   color: #231c07;
@@ -103,13 +119,9 @@ h1, h2{
   font-size: 1.3rem;
 }
 
-.bio {
-  margin: 15px;
-  font-family:Arial, Helvetica, sans-serif;
-}
 .headshot {
-  width:12.5rem;
-  height:12.5rem;
+  width:19.5rem;
+  height:19.5rem;
   border-radius:50%;
   box-shadow: 5px 10px 0px #695b3a;
   margin-left: 2rem;
@@ -200,4 +212,56 @@ h1, h2{
   height: 1rem;
   width: 1.5rem;
   background-color: #f5dc3b;
+}
+
+.beach-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  background-color: #F0E7D8;
+}
+.waves{
+  position:relative;
+  top: 0;
+  width: 100%;
+  overflow:hidden;
+}
+
+
+h1{
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1
+}
+
+.animated-container{
+  min-width: 55rem;
+  display: inline-block;
+}
+.animated-text {
+  font-weight: 700;
+  color: #7F96FF;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .animated-container{
+    min-width: 0;
+  }
+  h1{
+    font-size: 3.2rem;
+    line-height: 1;
+  }
+}
+
+button{
+  border: none;
+  border-radius: 1rem;
+  width: 8rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
 }

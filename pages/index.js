@@ -9,7 +9,6 @@ import { render } from "react-dom";
 import SkillIcon from '@/components/SkillIcon';
 import SkillDetail from '@/components/SkillDetail';
 
-
 const useParallax = (value, distance) =>{
   return useTransform(value, [0, 1], [-distance, distance]);
 }  
@@ -26,9 +25,11 @@ const Home = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const skills = [
     { name: "HTML", icon: "/images/html.svg", description: "As an integral building block of the web, I have used HTML extensively in my professional journey. I am proficient in utilizing HTML semantics to ensure that the content is accessible and SEO friendly. My understanding of elements, attributes, and the DOM allows me to create well-structured, efficient, and interactive web content.", 
-    proficiency: 8 },
-    { name: "CSS", icon: "/images/css.svg", description: "Lorem Ipsem", proficiency: 6 },
-    { name: "JavaScript", icon: "/images/javascript.svg", description: "Lorem Ipsem", proficiency:7 },
+    proficiency: 8, maincolor: '#CE6C47', secondarycolor: '#E8A87C'},
+    { name: "CSS", icon: "/images/css.svg", description: "Lorem Ipsem", proficiency: 6,
+    primarycolor: '#1c88c7', secondarycolor: '#E6F4FB'}, 
+    { name: "JavaScript", icon: "/images/javascript.svg", description: "Lorem Ipsem", proficiency:7,
+    primarycolor: '#FFDE25', secondarycolor: '#F7DF1E'},
     { name: "React", icon: "/images/react.svg", description: "Lorem Ipsem", proficiency: 7 },
     { name: "Node.js", icon: "/images/nodejs.svg", description: "Lorem Ipsem", proficiency: 7 },
     { name: "MongoDB", icon: "/images/mongodb.svg", description: "Lorem Ipsem", proficiency: 5 },
@@ -40,19 +41,19 @@ const Home = () => {
     if (selectedSkill && selectedSkill.name === skill.name) {
       setSelectedSkill(null);
       api.start({from: {
-        y: 225,
+        y: 180,
       }, to: {
         y: 0,
       },
       config:
-        {duration: 400}})
+        {duration: 500}})
     } else{
       api.start({from: {
         y:0,
       }, to: {
-        y: 225,
+        y: 180,
       },config:
-        {duration: 400}})
+        {duration: 500}})
       setSelectedSkill(skill);
     }
   }

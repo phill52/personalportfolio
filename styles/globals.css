@@ -7,6 +7,7 @@ html, body {
   overflow: visible;
   margin: 0;
   padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .main {
@@ -29,7 +30,11 @@ html, body {
 }
 
 h1, h2{
-  font-family: 'Times New Roman', Times, serif
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .downarrow {
@@ -97,6 +102,9 @@ h1, h2{
 .brass{
   color:#695b3a;
 }
+.cream{
+  color: #FFFDD0;
+}
 
 .description {
   color:#b5a642;
@@ -105,7 +113,7 @@ h1, h2{
 
 .bio {
   margin: 15px;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .headshot {
   width:12.5rem;
@@ -126,15 +134,16 @@ h1, h2{
     flex-direction: column;
   }
 }
-  
+
 
 
 
 
 .tech-container {
-  width: 100%;
+  width: 70%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 } 
 .skill-icon{
@@ -145,22 +154,23 @@ h1, h2{
   position: absolute;
   left:0;
   right:0;
-  top: 22rem;
+  top:35%;
   bottom:0;
-  height: 16rem;
+  height: 11rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  
 }
 .tech-title {
   font-size: 3rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   margin: 0;
-  color: #231c07;
+  color: #fffdd0;
   text-align: center;
   position: absolute;
   top: 5rem;
@@ -169,11 +179,16 @@ h1, h2{
 }
 
 .detail-container{
+  /* position: absolute; */
+  top: 5rem;
+  left:0;
+  right:0;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: top;
   gap: 2rem;
+  margin-bottom: 10rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -184,6 +199,9 @@ h1, h2{
   .skill-container{
     gap: 1rem;
   }
+  .tech-container {
+    width:90%;
+  }
 }
 
 .rating-full {
@@ -191,13 +209,19 @@ h1, h2{
   flex-direction: row;
   justify-content: center;
 }
-
 .rating-empty {
   filter: grayscale(100%);
 }
-
 .rating-bar {
   height: 1rem;
   width: 1.5rem;
   background-color: #f5dc3b;
+}
+.detail-inside-container{
+  gap:2rem;
+}
+.detail-skillbar-container{
+  width:15rem;
+  text-align: right;
+  padding-bottom: 1rem;
 }

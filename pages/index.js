@@ -278,7 +278,7 @@ const skills = [
                         <Image src='/images/shark.svg' height={100} width={100} />
                     </div>
                 </Reveal>
-                <div className='absolute top-[3%] left-[2%] w-full overflow-hidden'>
+                {/* <div className='absolute top-[3%] left-[2%] w-full overflow-hidden'>
                     <Image src='/images/bubble1.svg' height={100} width={100} alt="bubble" />
                 </div>
                 <div className='absolute top-[6rem] right-[3rem]'>
@@ -289,7 +289,7 @@ const skills = [
                 </div>
                 <div className='absolute bottom-[2rem] left-[3rem]'>
                     <Image src='/images/bubble4.svg' height={100} width={100} alt="bubble" />
-                </div>
+                </div> */}
             </section>
 
             <section className='pt-32 pb-60' id='skills'> 

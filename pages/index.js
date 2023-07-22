@@ -5,21 +5,35 @@ import Image from 'next/image';
 import {motion,useScroll,useTransform,MotionValue} from "framer-motion";
 import { useTransition, useSpring, animated } from '@react-spring/web'
 import { useMemo } from "react";
-import { render } from "react-dom";
 import SkillIcon from '@/components/SkillIcon';
 import SkillDetail from '@/components/SkillDetail';
 import AnimatedText from '@/components/AnimatedText';
 import AnimatedAnimal from '@/components/AnimatedAnimal';
 import { projects } from '@/components/ProjectDetails';
 import Project from '@/components/Project';
-import MultiImagePreview from '@/components/MultiImagePreview';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import Grid from '@mui/material/Unstable_Grid2';
+import { Fade } from "react-awesome-reveal";
+import { keyframes } from '@emotion/react';
+import { Reveal } from 'react-awesome-reveal';
+import AnimatedLogo from '@/components/AnimatedLogo';
 
 
 
 const useParallax = (value, distance) =>{
     return useTransform(value, [0, 1], [-distance, distance]);
 }  
+
+const onEnterAnimation = keyframes`
+    from{
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+    to{
+        opacity:1;
+        transform: translate3d(0, 0, 0);
+    }
+`
+
 const skills = [
     { 
         name: "HTML", 
@@ -134,24 +148,62 @@ const skills = [
     
     return (
         <>
-        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 text-olive py-4`}>
-        <ul className="flex justify-around py-2">
-            <li>
-                <a href="#home" className="text-lg font-bold">Home</a>
-            </li>
-            <li>
-                <a href="#about" className="text-lg font-bold">About Me</a>
-            </li>
-            <li>
-                <a href="#skills" className="text-lg font-bold">My Skills</a>
-            </li>
-            <li>
-                <a href="#projects" className="text-lg font-bold">Projects</a>
-            </li>
-            <li>
-                <a href="#contact" className="text-lg font-bold">Contact me</a>
-            </li>
-        </ul>
+        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 text-raisin py-4`}>
+            <ul className="lg:flex md:flex justify-around py-2 hidden ">
+                <li>
+                    <a href="#home" className="text-lg font-bold">Home</a>
+                </li>
+                <li>
+                    <a href="#about" className="text-lg font-bold">About Me</a>
+                </li>
+                <li>
+                    <a href="#skills" className="text-lg font-bold">My Skills</a>
+                </li>
+                <li>
+                    <a href="#projects" className="text-lg font-bold">Projects</a>
+                </li>
+                <li>
+                    <a href="#contact" className="text-lg font-bold">Contact me</a>
+                </li>
+            </ul>
+            <div className="fixed flex flex-row justify-around py-2 right-2 lg:hidden">
+                <button className="text-4xl text-raisin font-bold" onClick={() => setOpen(!open)}>☰</button>
+            </div>
+            <div 
+                className={`fixed top-0 right-0 h-full w-full bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${
+                    open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+                onClick={() => setOpen(false)}
+            />
+            <div 
+                className={`fixed w-[80%] top-0 right-0 h-full menu-clip bg-[#ebebeb] transition-transform duration-300 ease-in-out transform ${
+                    open ? 'translate-x-0' : 'translate-x-full'
+                }`}
+            >
+                <ul className="lg:hidden md:hidden flex flex-col justify-center gap-10 py-2 h-full">
+                    <li className='text-lg font-bold text-[#0B5D63]'>1. <br/>
+                        <a href="#home" className="text-2xl font-bold " onClick={()=>{setOpen(false)}}>Home</a>
+                    </li>
+                    <li className='text-lg font-bold text-[#0B5D63]'>2. <br/>
+                        <a href="#about" className="text-2xl font-bold" onClick={()=>{setOpen(false)}}>About Me</a>
+                    </li>
+                    <li className='text-lg font-bold text-[#0B5D63]'>3. <br/>
+                        <a href="#skills" className="text-2xl font-bold" onClick={()=>{setOpen(false)}}>My Skills</a>
+                    </li>
+                    <li className='text-lg font-bold text-[#0B5D63]'>3. <br/>
+                        <a href="#projects" className="text-2xl font-bold" onClick={()=>{setOpen(false)}}>Projects</a>
+                    </li>
+                    <li className='text-lg font-bold text-[#0B5D63]'>4. <br/>
+                        <a href="#contact" className="text-2xl font-bold" onClick={()=>{setOpen(false)}}>Contact me</a>
+                    </li>
+                </ul>
+                <button 
+                    className="absolute top-2 right-2 text-2xl font-bold" 
+                    onClick={() => setOpen(false)}
+                >
+                    &times;
+                </button>
+            </div>
         </header>
         <section className='bg-sand h-screen flex flex-col justify-center align-center relative z-10' id='home'>
             <div className='flex flex-row justify-around items-center px-8 z-10'>
@@ -166,13 +218,20 @@ const skills = [
                     </button>
                 </div>
 
-                <div className='flex lg:flex-row flex-col-reverse items-center space-x-4 lg:space-x-8'>
-                    <h1 className='text-raisin'>Hi, <br/> 
-                    I&apos;m Phillip🦈 <br/>
-                    I&apos;m a <AnimatedText phrases={phrases}/></h1>
-                    <Image src='/images/panerine.jpg' height={300} width={300} className="headshot" alt="Headshot of Phillip Anerine"/>
-                </div>
+                <Reveal keyframes={onEnterAnimation} triggerOnce>
                     
+                    <div className='flex lg:flex-row flex-col-reverse items-center space-x-4 lg:space-x-8'>
+                        <div className="flex lg:flex-col md:flex-col sm:flex-row sm:pt-3 gap-x-2 justify-center">
+                                <AnimatedLogo src='/images/email.svg' href='mailto:paner225@gmail.com' width={40} height={40}/>
+                                <AnimatedLogo src='/images/linkedin.svg' href='https://www.linkedin.com/in/panerine/' width={40} height={40}/>
+                                <AnimatedLogo src='/images/github.svg' href='https://github.com/phill52' width={40} height={40}/>
+                            </div>
+                        <h1 className='text-raisin'>Hi, <br/>
+                        I&apos;m Phillip🦈 <br/>
+                        I&apos;m a <AnimatedText phrases={phrases}/></h1>
+                        <Image src='/images/panerine.jpg' height={300} width={300} className="headshot" alt="Headshot of Phillip Anerine"/>
+                    </div>
+                </Reveal>
             </div>
             <div className='absolute w-full h-screen overflow-hidden'>
                 {crabs.map((crab) => (
@@ -192,31 +251,44 @@ const skills = [
         
         <div className='bg-ocean pt-16 pb-8 bg-oceanBlue relative z-10'>
             <div class="absolute flex flex-row justify-around shark-button-pos">
-                    <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addShark}>
+                    <button className='bg-[#8A8A8A] text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addShark}>
                         <span>+</span>
-                        <Image height={50} width={50} src='/images/shark-inner.svg'/>
+                        <Image height={50} width={50} src='/images/shark-inner6.svg'/>
                     </button>
-                    <button className='bg-crab text-white text-4xl px-4 py-0 font-white flex flex-row items-center justify-center' onClick={removeShark}>
+                    <button className='bg-[#8A8A8A] text-white text-4xl px-4 py-0 font-white flex flex-row items-center justify-center' onClick={removeShark}>
                         <span>-</span>
-                        <Image height={50} width={50} src='/images/shark-inner.svg'/>
+                        <Image height={50} width={50} src='/images/shark-inner6.svg'/>
                     </button>
                 </div>
-            <section className='pb-60 pt-32 flex align-center' id='about'>
-                
-                <div className='flex flex-col lg:px-32 md:px-16  px-8 text-left z-10 align-center'>
-                    <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>About Me</h2>
-                    <br/>
-                    <p className='text-pearl lg:text-3xl text-lg  font-bold'>
-                    Hi there! I&apos;m Phillip Anerine, a 4th year computer science undergrad at Stevens Institute of Technology, an aspiring 
-                    full-stack software engineer and an avid coffee drinker. I&apos;m passionate about all steps of creating software solutions 
-                    to solve business problems. I&apos;ve spent extensive time out of the classroom to learn modern frameworks and tools to create 
-                    my projects that you can check out here. When I&apos;m not coding, you can find me at the gym, a hike trail, or a rock concert. 
-                    Feel free to reach out.
-                    <br/>
-                    <br/>
-                    Cheers!
-                    </p>
-                    <Image src='/images/shark.svg' height={100} width={100} />
+            <section className='pb-60 pt-32 flex align-center relative' id='about'>
+                <Reveal keyframes={onEnterAnimation} triggerOnce>
+                    <div className='flex flex-col lg:px-32 md:px-16  px-8 text-left z-10 align-center'>
+                        <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>About Me</h2>
+                        <br/>
+                        <p className='text-pearl lg:text-3xl text-lg  font-bold'>
+                        Hi there! I&apos;m Phillip Anerine, a 4th year computer science undergrad at Stevens Institute of Technology, an aspiring
+                        full-stack software engineer and an avid coffee drinker. I&apos;m passionate about all steps of creating software solutions
+                        to solve business problems. I&apos;ve spent extensive time out of the classroom to learn modern frameworks and tools to create
+                        my projects that you can check out here. When I&apos;m not coding, you can find me at the gym, a hike trail, or a rock concert.
+                        Feel free to reach out.
+                        <br/>
+                        <br/>
+                        Cheers!
+                        </p>
+                        <Image src='/images/shark.svg' height={100} width={100} />
+                    </div>
+                </Reveal>
+                <div className='absolute top-[3%] left-[2%] w-full overflow-hidden'>
+                    <Image src='/images/bubble1.svg' height={100} width={100} alt="bubble" />
+                </div>
+                <div className='absolute top-[6rem] right-[3rem]'>
+                    <Image src='/images/bubble2.svg' height={100} width={100} alt="bubble" />
+                </div>
+                <div className='absolute bottom-[5rem] right-[3rem]'>
+                    <Image src='/images/bubble3.svg' height={100} width={100} alt="bubble" />
+                </div>
+                <div className='absolute bottom-[2rem] left-[3rem]'>
+                    <Image src='/images/bubble4.svg' height={100} width={100} alt="bubble" />
                 </div>
             </section>
 
@@ -233,52 +305,63 @@ const skills = [
                                 <SkillIcon skill={skill} onClick={()=>onSkillClick(skill)} />
                             </li>)}
                         </ul>
+                        
                     </div>
+
                 </div>
             </section>
             
             <section className='pt-32 pb-60' id='projects'> 
-                <div className='flex flex-col w-full justify-center items-center lg:px-32 md:px-16 px-8 z-10'>
-                    <h2 className='text-pearl lg:text-4xl text-2xl font-bold pb-8'>My Projects</h2>
-                    
-                    <Grid container spacing={2}>
-                    {
-                        Object.keys(projects).map((key) => {
-                            return (
-                                <Grid item xs={12} sm={6} key={key}>
-                                    <Project project={projects[key]} />
-                                </Grid>
-                            )
-                        })
-                    }
-                </Grid>
-
-
-                    
-                    {/* <div className='flex flex-row justify-around items-center flex-wrap gap-y-8 pb-10 px-8  '>
+                <Reveal keyframes={onEnterAnimation} triggerOnce>
+                    <div className='flex flex-col w-full justify-center items-center lg:px-32 md:px-16 px-8 z-10'>
+                        <h2 className='text-pearl lg:text-4xl text-2xl font-bold pb-8'>My Projects</h2>
+                        <Grid container spacing={2}>
                         {
                             Object.keys(projects).map((key) => {
                                 return (
-                                    <Project key={key} project={projects[key]} />
+                                    <Grid item xs={12} sm={6} key={key}>
+                                        <Project project={projects[key]} />
+                                    </Grid>
+                                )
+                            })
+                        }
+                    </Grid>
+                    
+                        {/* <div className='flex flex-row justify-around items-center flex-wrap gap-y-8 pb-10 px-8  '>
+                            {
+                                Object.keys(projects).map((key) => {
+                                    return (
+                                        <Project key={key} project={projects[key]} />
+                                    )
+                                }
                                 )
                             }
-                            )
-                        }
-                    </div> */}
-                </div>
+                        </div> */}
+                    </div>
+                </Reveal>
             </section>
 
             <section className='pt-32' id='contact'>
                 <div className="relative flex-col w-full justify-center lg:px-32 md:px-16  px-8 z-10 h-most">
-                    <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>Contact Me</h2>
-                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&apos;m always up for a good tech talk! 
-                        <br/>
-                        Feel free to reach out to me via: <br/>
-                        Email: <a  href="mailto:paner225@gmail.com" className="text-pearl hover:text-raisin transition-all"> paner225@gmail.com </a> <br/>
-                        Phone: (201) 618-5488 <br/>
-                        LinkedIn: <a href="https://www.linkedin.com/in/panerine/" className="text-pearl hover:text-raisin transition-all"> https://www.linkedin.com/in/panerine/ </a> <br/>
-                        Looking forward to hearing from you! <br/>
-                        Best, Phillip</p>
+                    <Reveal keyframes={onEnterAnimation} triggerOnce>
+                        <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>Contact Me</h2>
+                        <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&apos;m always up for a good tech talk!
+                            <br/>
+                            Feel free to reach out to me
+                            <br/>                            
+                            <div className="flex flex-row gap-x-2 justify-center">
+                                <AnimatedLogo src='/images/email.svg' href='mailto:paner225@gmail.com' width={40} height={40}/>
+                                <AnimatedLogo src='/images/linkedin.svg' href='https://www.linkedin.com/in/panerine/' width={40} height={40}/>
+                                <AnimatedLogo src='/images/github.svg' href='https://github.com/phill52' width={40} height={40}/>
+                            </div>
+                            Looking forward to hearing from you! <br/>
+                            Best, Phillip
+                            
+                            </p>
+
+                    </Reveal>
+                    
+
                 </div>
                 <div className="absolute bottom-0 z-0 h-[900px] w-full overflow-hidden">
                     <Image 

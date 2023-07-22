@@ -350,4 +350,16 @@ button{
   height: 80vh;
 }
 
+.menu-clip{
+  clip-path: polygon(10% 0%, 30% 100%, 100% 100%, 100% 0%);
+}
 
+.animated-logo{
+  filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+
+.animated-logo:hover{
+  filter: grayscale(0%);
+  transform: scale(1.3) rotate(20deg);
+}

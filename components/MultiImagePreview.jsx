@@ -55,7 +55,7 @@ const MultiImagePreview = ({images}) => {
         <div className='relative multi-image-container flex justify-center'>
             <div className='flex justify-center h-full'>
                 {transitions((style, i) =>
-                    <animated.div style={style} className='rounded-lg absolute flex w-[90%] justify-center'>
+                    <animated.div style={style} className='rounded-lg absolute flex w-full justify-center'>
                         <Image 
                             src={images[i]} 
                             className='w-full md:w-8/12 lg:w-full '
@@ -70,7 +70,7 @@ const MultiImagePreview = ({images}) => {
             </div>
             <div className='absolute z-10 bottom-4 w-full flex justify-center space-x-2'>
                 {images.map((img, idx) => (
-                    <button key={idx} className={`h-2 w-2 rounded-full ${idx === index ? 'bg-blue-500' : 'bg-gray-600'}`} onClick={() => setIndex(idx)}></button>
+                    <button key={idx} className={`h-2 w-1 rounded-full ${idx === index ? 'bg-blue-500' : 'bg-gray-600'}`} onClick={() => setIndex(idx)}></button>
                 ))}
             </div>
         </div>

@@ -53,15 +53,19 @@ const MultiImagePreview = ({images}) => {
 
     return (
         <div className='relative multi-image-container flex justify-center'>
-            <div className='w-full h-full'>
+            <div className='flex justify-center h-full'>
                 {transitions((style, i) =>
-                    <animated.div style={style} className='rounded-lg absolute'>
-                        <Image width={560} height={315} src={images[i]} />
-                    </animated.div>
+                    <animated.div style={style} className='rounded-lg absolute flex w-[90%] justify-center'>
+                        <Image 
+                            src={images[i]} 
+                            className='w-full md:w-8/12 lg:w-full '
+                            height={315} 
+                            width={560} 
+                        />                    </animated.div>
                 )}
             </div>
             <div className='absolute z-10 top-0 bottom-0 w-bigger flex justify-between'>
-                <ProgressButton height={50} width={50} src='/images/arrow-left.svg' onClick={onDecrease} disabled={index<=0} className='bg-blue-200'/>
+                <ProgressButton height={50} width={50} src='/images/arrow-left.svg' onClick={onDecrease} disabled={index<=0}/>
                 <ProgressButton height={50} width={50} src='/images/arrow-right.svg' onClick={onIncrease} disabled={index>=images.length-1}/>
             </div>
             <div className='absolute z-10 bottom-4 w-full flex justify-center space-x-2'>

@@ -3,14 +3,16 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
 
 
 html, body {
-  overflow: visible;
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  z-index: 10;
+  overflow: auto;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -120,8 +122,8 @@ html, body {
 }
 
 .headshot {
-  width:19.5rem;
-  height:19.5rem;
+  width:15.5rem;
+  height:15.5rem;
   border-radius:50%;
   box-shadow: 5px 10px 0px #695b3a;
   margin-left: 2rem;
@@ -307,6 +309,17 @@ button{
 .w-bigger {
   width: 110%;
 }
+.button-pos{
+  top: 10%;
+  right: 5%;
+  width: 18rem;
+}
+
+.shark-button-pos{
+  top: 1%;
+  right: 5%;
+  width: 18rem;
+}
 @media screen and (max-width: 768px) {
   .multi-image-container {
     width: 280px;
@@ -315,6 +328,24 @@ button{
   .w-bigger{
     width: 130%;
   }
+  .button-pos2{
+    left:0;
+    right:0;
+  }
+  .shark-button-pos{
+    top: 1%;
+    right: 10%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .w-bigger{
+    width: 80%;
+  }
+}
+
+.h-most{
+  height: 80vh;
 }
 
 

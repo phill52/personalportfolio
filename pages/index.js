@@ -13,10 +13,12 @@ import AnimatedAnimal from '@/components/AnimatedAnimal';
 import { projects } from '@/components/ProjectDetails';
 import Project from '@/components/Project';
 import MultiImagePreview from '@/components/MultiImagePreview';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+
 
 
 const useParallax = (value, distance) =>{
-return useTransform(value, [0, 1], [-distance, distance]);
+    return useTransform(value, [0, 1], [-distance, distance]);
 }  
 const skills = [
     { 
@@ -128,11 +130,22 @@ const skills = [
 
 
 
+    
     return (
         <>
+        {/* <header className="absolute top-0 z-10">
+            asdfjls
+            <ul className="flex flex-row justify-around">
+                <li className="text-lg text-bold">Home</li>
+                <li className="text-lg text-bold">About Me</li>
+                <li className="text-lg text-bold">My Skills</li>
+                <li className="text-lg text-bold">Projects</li>
+                <li className="text-lg text-bold">Contact me</li>
+            </ul>
+        </header> */}
         <section className='bg-sand h-screen flex flex-col justify-center align-center relative z-10'>
             <div className='flex flex-row justify-around items-center px-8 z-10'>
-                <div class="absolute flex flex-row space-around top-24 right-24">
+                <div class="absolute flex flex-row justify-around button-pos">
                     <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addCrab}>
                         <span>+</span>
                         <Image height={50} width={50} src='/images/crab-inner.svg'/>
@@ -168,8 +181,19 @@ const skills = [
         </section>
         
         <div className='bg-ocean pt-16 pb-8 bg-oceanBlue relative z-10'>
+            <div class="absolute flex flex-row justify-around shark-button-pos">
+                    <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addShark}>
+                        <span>+</span>
+                        <Image height={50} width={50} src='/images/shark-inner.svg'/>
+                    </button>
+                    <button className='bg-crab text-white text-4xl px-4 py-0 font-white flex flex-row items-center justify-center' onClick={removeShark}>
+                        <span>-</span>
+                        <Image height={50} width={50} src='/images/shark-inner.svg'/>
+                    </button>
+                </div>
             <section className='pb-96' id='about'>
-                <div className='flex flex-col lg:px-32 md:px-16 sm: px-8 text-left z-10 align-center'>
+                
+                <div className='flex flex-col lg:px-32 md:px-16  px-8 text-left z-10 align-center'>
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>About Me</h2>
                     <br/>
                     <p className='text-pearl lg:text-3xl text-lg  font-bold'>
@@ -204,9 +228,24 @@ const skills = [
             </section>
             
             <section className='pb-96'> 
-                <div className='flex flex-col w-full justify-center items-center z-10'>
+                <div className='flex flex-col w-full justify-center items-center lg:px-32 md:px-16 px-8 z-10'>
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold pb-8'>My Projects</h2>
-                    <div className='flex flex-row justify-around items-center flex-wrap pb-10'>
+                    
+                    <Grid container spacing={2}>
+                    {
+                        Object.keys(projects).map((key) => {
+                            return (
+                                <Grid item xs={12} sm={6} key={key}>
+                                    <Project project={projects[key]} />
+                                </Grid>
+                            )
+                        })
+                    }
+                </Grid>
+
+
+                    
+                    {/* <div className='flex flex-row justify-around items-center flex-wrap gap-y-8 pb-10 px-8  '>
                         {
                             Object.keys(projects).map((key) => {
                                 return (
@@ -215,7 +254,30 @@ const skills = [
                             }
                             )
                         }
-                    </div>
+                    </div> */}
+                </div>
+            </section>
+
+            <section>
+                <div className="relative flex-col w-full justify-center lg:px-32 md:px-16  px-8 z-10 h-most">
+                    <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>Contact Me</h2>
+                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I'm always up for a good tech talk! 
+                        <br/>
+                        Feel free to reach out to me via: <br/>
+                        Email: <a  href="mailto:paner225@gmail.com" className="text-pearl hover:text-raisin transition-all"> paner225@gmail.com </a> <br/>
+                        Phone: (201) 618-5488 <br/>
+                        LinkedIn: <a href="https://www.linkedin.com/in/panerine/" className="text-pearl hover:text-raisin transition-all"> https://www.linkedin.com/in/panerine/ </a> <br/>
+                        Looking forward to hearing from you! <br/>
+                        Best, Phillip</p>
+                </div>
+                <div className="absolute bottom-0 z-0 h-[900px] w-full overflow-hidden">
+                    <Image 
+                    src="/images/rockplants.svg"
+                    alt="Rocks"
+                    className=" w-full h-full object-cover z-0 object-center"
+                    layout="fill"
+                    />
+                    
                 </div>
             </section>
 
@@ -228,25 +290,7 @@ const skills = [
                     />
                     )
                 )}
-            
         </div>
-        
-            {/* <section className="container" id='section-3'>
-                <div className="tech-container">
-                    <h2 className="tech-title">My Tech Stack</h2>
-                    {transitions((style, item) =>
-                        item ? <animated.div style={style}><SkillDetail skill={item} /></animated.div> : null
-                    )}
-
-                    <animated.ul className='skill-container' style={{...techSpring}} >
-                    {skills.map(skill => 
-                    <li key={skill.name}>
-                        <SkillIcon skill={skill} onClick={()=>onSkillClick(skill)} />
-                    </li>)}
-                    </animated.ul>
-                    
-                </div>
-            </section> */}
         </>
     );
     };

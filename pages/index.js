@@ -93,6 +93,20 @@ const skills = [
     // }, []
     // )
     
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollPosition(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    const isBeachSection = scrollPosition <= 800;
 
     const phrases = useMemo(()=> 
     ["Computer Science Student", "Tech Enthusiast", "Software Engineer💻"]
@@ -133,17 +147,27 @@ const skills = [
     
     return (
         <>
-        {/* <header className="absolute top-0 z-10">
-            asdfjls
-            <ul className="flex flex-row justify-around">
-                <li className="text-lg text-bold">Home</li>
-                <li className="text-lg text-bold">About Me</li>
-                <li className="text-lg text-bold">My Skills</li>
-                <li className="text-lg text-bold">Projects</li>
-                <li className="text-lg text-bold">Contact me</li>
-            </ul>
-        </header> */}
-        <section className='bg-sand h-screen flex flex-col justify-center align-center relative z-10'>
+        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 ${isBeachSection ? 'text-olive' : 'text-pearl'}`}>
+        
+        <ul className="flex justify-around py-4 px-32">
+            <li>
+                <a href="#home" className="text-lg font-bold">Home</a>
+            </li>
+            <li>
+                <a href="#about" className="text-lg font-bold">About Me</a>
+            </li>
+            <li>
+                <a href="#skills" className="text-lg font-bold">My Skills</a>
+            </li>
+            <li>
+                <a href="#projects" className="text-lg font-bold">Projects</a>
+            </li>
+            <li>
+                <a href="#contact" className="text-lg font-bold">Contact me</a>
+            </li>
+        </ul>
+        </header>
+        <section className='bg-sand h-screen flex flex-col justify-center align-center relative z-10' id='home'>
             <div className='flex flex-row justify-around items-center px-8 z-10'>
                 <div class="absolute flex flex-row justify-around button-pos">
                     <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addCrab}>
@@ -191,7 +215,7 @@ const skills = [
                         <Image height={50} width={50} src='/images/shark-inner.svg'/>
                     </button>
                 </div>
-            <section className='pb-96' id='about'>
+            <section className='pb-60 pt-32 flex align-center' id='about'>
                 
                 <div className='flex flex-col lg:px-32 md:px-16  px-8 text-left z-10 align-center'>
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>About Me</h2>
@@ -210,7 +234,7 @@ const skills = [
                 </div>
             </section>
 
-            <section className='pb-96' id='skills'> 
+            <section className='pt-32 pb-60' id='skills'> 
                 <div className='flex flex-col lg:px-32 md:px-16 px-8 z-10 justify-center items-center'>
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold pb-8'>My Skills</h2>
                     <div className='text-pearl text-3xl font-bold bg-darkocean rounded-lg ease-transition'>
@@ -227,7 +251,7 @@ const skills = [
                 </div>
             </section>
             
-            <section className='pb-96'> 
+            <section className='pt-32 pb-60' id='projects'> 
                 <div className='flex flex-col w-full justify-center items-center lg:px-32 md:px-16 px-8 z-10'>
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold pb-8'>My Projects</h2>
                     
@@ -258,10 +282,10 @@ const skills = [
                 </div>
             </section>
 
-            <section>
+            <section className='pt-32' id='contact'>
                 <div className="relative flex-col w-full justify-center lg:px-32 md:px-16  px-8 z-10 h-most">
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>Contact Me</h2>
-                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I'm always up for a good tech talk! 
+                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&post;m always up for a good tech talk! 
                         <br/>
                         Feel free to reach out to me via: <br/>
                         Email: <a  href="mailto:paner225@gmail.com" className="text-pearl hover:text-raisin transition-all"> paner225@gmail.com </a> <br/>

@@ -1,33 +1,48 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import Image from "next/image";
 
-const AnimatedAnimal = ({ icon }) => {
-    function getRandomStyle() {
-        return { x: Math.random()*(window.innerWidth), y: Math.random()*(window.innerHeight) };
-    }
-    const initialPosition = getRandomStyle();
-    const initialTarget = getRandomStyle();
+const AnimatedAnimal = ({ icon, alt, key, z }) => {
+    const animalRef = useRef(null);
+    const [rotate, setRotate] = useState(0);
+    const [{ x, y }, api] = useSpring(() => ({
+        from:  getRandomPosition(animalRef) ,
+        config: {
+            duration: Math.random() * 2000 + 6000
+        },
+        onRest: () => {
+            const newTarget = getRandomPosition(animalRef.current.parentElement);
+            const newDirection = Math.atan2(newTarget.y - y.get(), newTarget.x - x.get());
+            setRotate(newDirection);
+            api.start({ to: newTarget });
+        }
+    }));
 
-    const [style, set] = useState(getRandomStyle());
-    const [{ x, y }, api] = useSpring(() => ({ from: initialPosition , to: initialTarget,
-    config:{
-        duration: 8000
-    } }));
+    function getRandomPosition(element) {
+        return {
+            x: Math.random() * (element.offsetWidth - 100),
+            y: Math.random() * (element.offsetHeight - 100),
+        };
+    }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            api.start({ to: getRandomStyle() });
-        }, 8000);
-        
-        return () => {
-            clearInterval(interval);
-        };
-    }, [api]);
+        if (animalRef.current) {
+            const newPosition = getRandomPosition(animalRef.current.parentElement);
+            api.start({ to: newPosition });
+        }
+    }, []);
 
     return (
-        <animated.div style={{ position: 'absolute', left: x, top: y }}>
-            <Image src={icon} height={25} width={25} alt="crab" className='-z-10'/>
+        <animated.div 
+            ref={animalRef}
+            style={{ 
+                position: 'absolute', 
+                left: x, 
+                top: y,
+                transform: `rotate(${rotate}rad)`,
+                zIndex: z
+            }}>
+            <Image key={key} src={icon} height={25} width={25} alt={alt}/>
         </animated.div>
     );
 }

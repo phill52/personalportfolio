@@ -11,7 +11,9 @@ module.exports = {
         sand: '#F0E7D8',
         ocean: '#16BAC5',
         raisin: '#342E37',
-        crab: '#FF481D'
+        crab: '#FF481D',
+        pearl: '#DAF9FB',
+        darkocean: '#063538'
       }
     },
   },

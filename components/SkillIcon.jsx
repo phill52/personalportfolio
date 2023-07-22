@@ -16,6 +16,8 @@ function SkillIcon({ skill, onClick }) {
     <animated.div style={style} onMouseEnter={()=>setBlurred(false)} onMouseLeave={()=>setBlurred(true)} onClick={onClick}>
       <Tilt tiltReverse={false} perspective={500} reset={true} scale={1.3}  transitionSpeed={2500} className='skill-icon'>
         <Image
+          width={200}
+          height={200}
           src={skill.icon}
           />
       {/* <div className='box'/> */}

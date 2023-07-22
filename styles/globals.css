@@ -133,10 +133,6 @@ html, body {
     margin-left: 0;
     margin-top: 1rem;
   }
-  .profile-container {
-    width:80%;
-    flex-direction: column;
-  }
 }
   
 
@@ -152,6 +148,7 @@ html, body {
 .skill-icon{
   height: 6rem;
   width: 6rem;
+  padding-bottom: 6rem;
 }
 .skill-container{
   position: absolute;
@@ -196,6 +193,18 @@ html, body {
   .skill-container{
     gap: 1rem;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .skill-container{
+    gap: 1rem;
+  }
+  .headshot{
+    width: 12rem;
+    height: 12rem;
+  }
+
+  
 }
 
 .rating-full {
@@ -247,6 +256,10 @@ h1{
   text-decoration: underline;
 }
 
+.waves {
+  background-image: url('/images/waves-big.svg');
+}
+
 @media screen and (max-width: 768px) {
   .animated-container{
     min-width: 0;
@@ -254,6 +267,9 @@ h1{
   h1{
     font-size: 3.2rem;
     line-height: 1;
+  }
+  .waves{
+    background-image: url('/images/waves-small.svg');
   }
 }
 
@@ -265,3 +281,40 @@ button{
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+.ease-transition {
+  transition: all 0.5s ease-in-out;
+}
+
+.disabled-button {
+  filter: grayscale(50%) brightness(60%);
+  transform: scale(0.9);
+  cursor: not-allowed;
+  transition: all 0.5s ease-in-out;
+}
+
+.enabled-button:hover {
+  transform: scale(1.05);
+  filter: saturate(2); 
+  transition: all 0.2s;
+}
+
+.multi-image-container {
+  width: 560px;
+  height: 280px;
+}
+
+.w-bigger {
+  width: 110%;
+}
+@media screen and (max-width: 768px) {
+  .multi-image-container {
+    width: 280px;
+    height: 140px;
+  }
+  .w-bigger{
+    width: 130%;
+  }
+}
+
+

@@ -93,20 +93,7 @@ const skills = [
     // }, []
     // )
     
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-    const isBeachSection = scrollPosition <= 800;
+    const [open, setOpen] = useState(false);
 
     const phrases = useMemo(()=> 
     ["Computer Science Student", "Tech Enthusiast", "Software Engineer💻"]
@@ -147,9 +134,8 @@ const skills = [
     
     return (
         <>
-        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 ${isBeachSection ? 'text-olive' : 'text-pearl'}`}>
-        
-        <ul className="flex justify-around py-4 px-32">
+        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 text-olive py-4`}>
+        <ul className="flex justify-around py-2">
             <li>
                 <a href="#home" className="text-lg font-bold">Home</a>
             </li>
@@ -285,7 +271,7 @@ const skills = [
             <section className='pt-32' id='contact'>
                 <div className="relative flex-col w-full justify-center lg:px-32 md:px-16  px-8 z-10 h-most">
                     <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>Contact Me</h2>
-                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&post;m always up for a good tech talk! 
+                    <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&apos;m always up for a good tech talk! 
                         <br/>
                         Feel free to reach out to me via: <br/>
                         Email: <a  href="mailto:paner225@gmail.com" className="text-pearl hover:text-raisin transition-all"> paner225@gmail.com </a> <br/>

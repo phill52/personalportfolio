@@ -98,14 +98,14 @@ const skills = [
 
     const [crabs, setCrabs] = useState([]);
     const [sharks, setSharks] = useState([]);
-    // useEffect(() => {
-    //     const numberOfCrabs = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
-    //     for (let i=0; i<numberOfCrabs; i++){
-    //         addCrab();
-    //         addShark();
-    //     }
-    // }, []
-    // )
+    useEffect(() => {
+        const numberOfCrabs = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+        for (let i=0; i<numberOfCrabs; i++){
+            addCrab();
+            addShark();
+        }
+    }, []
+    )
     
     const [open, setOpen] = useState(false);
 
@@ -240,6 +240,7 @@ const skills = [
                         alt={`crab-${crab.id}`}
                         icon='/images/crab.svg'
                         z={-10}
+                        className='no-drag'
                         />
                 ))}
             </div>
@@ -380,6 +381,7 @@ const skills = [
                         alt={`shark-${shark.id}`}
                         icon='/images/shark.svg'
                         z={-10}
+                        className='no-drag'
                     />
                     )
                 )}

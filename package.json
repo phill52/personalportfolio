@@ -21,6 +21,7 @@
     "react-awesome-reveal": "^4.2.5",
     "react-dom": "^18.2.0",
     "react-parallax-tilt": "^1.7.151",
+    "react-simple-image-slider": "^2.4.1",
     "react-svg": "^16.1.17",
     "typed.js": "^2.0.16"
   },

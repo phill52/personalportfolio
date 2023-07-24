@@ -9,6 +9,7 @@ export default function Document() {
         Stevens Institute of Technology, and aspiring full stack developer." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icon.svg" />
+        <script type="module" src='https://sitring.eric.si/webring.js?id=phill52' id="webringjs"/>
       <body>
         <Main />
         <NextScript />

@@ -370,10 +370,13 @@ const skills = [
                             </div>
                             Looking forward to hearing from you! <br/>
                             Best, Phillip
-                            
                             </p>
-
+                            <div className='text-center text-pearl text-sm self-end justify-self-end webring'>
+                                <div id="webring" class='text-center pt-10'>
+                                </div>
+                            </div>
                     </Reveal>
+                    
                     
 
                 </div>
@@ -384,7 +387,6 @@ const skills = [
                     className=" w-full h-full object-cover z-0 object-center"
                     layout="fill"
                     />
-                    
                 </div>
             </section>
 

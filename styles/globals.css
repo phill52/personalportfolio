@@ -384,3 +384,18 @@ button{
   -ms-user-select: none;
 }
 
+
+
+.webring{
+  padding-top: 5rem;
+  color: #DAF9FB;
+  font-size: 1rem;
+}
+
+.webring a{
+  text-decoration: underline;
+}
+
+.webring a:hover{
+  color: #0A555A;
+}

@@ -239,7 +239,7 @@ const skills = [
                                 <AnimatedLogo src='/images/linkedin.svg' href='https://www.linkedin.com/in/panerine/' width={40} height={40}/>
                                 <AnimatedLogo src='/images/github.svg' href='https://github.com/phill52' width={40} height={40}/>
                             </div>
-                        <h1 className='text-raisin'>Hi, <br/>
+                        <h1 className='text-raisin lg:text-[4rem] text-[3rem]'>Hi, <br/>
                         I&apos;m Phillip🦈 <br/>
                         I&apos;m a <AnimatedText phrases={phrases}/></h1>
                         <Image src='/images/panerine.jpg' height={300} width={300} className="headshot" alt="Headshot of Phillip Anerine"/>
@@ -279,7 +279,7 @@ const skills = [
                     <div className='flex flex-col lg:px-32 md:px-16  px-8 text-left z-10 align-center'>
                         <h2 className='text-pearl lg:text-4xl text-2xl font-bold'>About Me</h2>
                         <br/>
-                        <p className='text-pearl lg:text-3xl text-lg  font-bold'>
+                        <p className='text-pearl lg:text-3xl font-bold'>
                         Hi there! I&apos;m Phillip Anerine, a 4th year computer science undergrad at Stevens Institute of Technology, an aspiring
                         full-stack software engineer and an avid coffee drinker. I&apos;m passionate about all steps of creating software solutions
                         to solve business problems. I&apos;ve spent extensive time out of the classroom to learn modern frameworks and tools to create

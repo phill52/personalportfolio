@@ -179,7 +179,7 @@ const skills = [
                     <a href="#contact" className="text-lg font-bold">Contact me</a>
                 </li>
             </ul>
-            <div className="fixed flex flex-row justify-around py-2 right-2 lg:hidden">
+            <div className="fixed flex flex-row justify-around py-2 right-2 lg:hidden md:hidden ">
                 <button className="text-4xl text-raisin font-bold" onClick={() => setOpen(!open)}>☰</button>
             </div>
             <div 

@@ -40,7 +40,6 @@ const SkillDetail = ({skill}) => {
   }
   return(
       <div className='flex flex-row justify-left lg:px-16 px-8 py-8'>
-        <Image height={100} width={100} className="skill-icon" src={skill.icon}/>
         <div className="flex flex-col justify-center lg:pl-4 pl-2">
           <h3 className='lg:text-4xl text-2xl'>{skill.name}</h3>
           <SkillBar rating={skill.proficiency} color={skill.color} />

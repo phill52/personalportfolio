@@ -220,7 +220,7 @@ const skills = [
         </header>
         <section className='bg-sand h-screen flex flex-col justify-center align-center relative z-10' id='home'>
             <div className='flex flex-row justify-around items-center px-8 z-10'>
-                <div class="absolute flex flex-row justify-around button-pos">
+                <div className="absolute flex flex-row justify-around button-pos">
                     <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addCrab}>
                         <span>+</span>
                         <Image height={50} width={50} src='/images/crab-inner.svg'/>
@@ -264,7 +264,7 @@ const skills = [
         </section>
         
         <div className='bg-ocean pt-16 pb-8 bg-oceanBlue relative z-10'>
-            <div class="absolute flex flex-row justify-around shark-button-pos">
+            <div className="absolute flex flex-row justify-around shark-button-pos">
                     <button className='bg-[#8A8A8A] text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addShark}>
                         <span>+</span>
                         <Image height={50} width={50} src='/images/shark-inner6.svg'/>
@@ -313,7 +313,7 @@ const skills = [
                         {transitions((style, item) =>
                             item ? <animated.div style={style}><SkillDetail skill={item} /></animated.div> : null
                         )}
-                        <ul className='flex flex-row justify-around flex-wrap pb-10 px-10'>
+                        <ul className='flex flex-row justify-around flex-wrap lg:gap-x-2 lg:gap-y-10 pb-10 px-10'>
                             {skills.map(skill => 
                             <li key={skill.name}>
                                 <SkillIcon skill={skill} onClick={()=>onSkillClick(skill)} />

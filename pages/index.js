@@ -72,11 +72,11 @@ const skills = [
     { 
         name: "MongoDB", 
         icon: "/images/mongodb.svg", 
-        description: "Experienced in creating, querying, and managing databases with MongoDB. I have used it for developing applications with a non-relational, scalable, and performance-oriented database. I have used Mongoose to create schemas and models for my data and to .", 
+        description: "I have utilized MongoDB for developing applications that require a flexible, scalable, and performance-oriented database. I'm proficient in creating, reading, updating, and deleting data in this NoSQL database system. I've also gained experience in basic performance optimization techniques and creating simple queries.", 
         color: '#4DB33D', 
         proficiency: 5 
     },
-    { 
+    {
         name: "Python", 
         icon: "/images/python.svg", 
         description: "I have leveraged Python's strengths in readability, scalability, and simplicity for various tasks, including data analysis and web development. I've used the powerful Python libraries pytest, Flask, and SQLAlchemy.", 

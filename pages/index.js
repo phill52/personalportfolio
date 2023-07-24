@@ -66,7 +66,7 @@ const skills = [
     { 
         name: "Node.js", 
         icon: "/images/nodejs.svg", 
-        description: "I am proficient in building scalable and high-performing back-end services using Node.js. I have designed and created RESTful APIs with Express to perform CRUD operations on a database and have deployed these to AWS.", 
+        description: "I am adept at building back-end services using Node.js. I've developed both RESTful APIs and multi-page applications with Express.js, implemented effective caching using Redis, and even created a GraphQL server with Apollo. I excel in creating efficient and well-structured server-side logic. I also have experience deploying these backend services to AWS.", 
         color: '#68A063', 
         proficiency: 7 
     },
@@ -90,6 +90,20 @@ const skills = [
         description: "My skills in PostgreSQL allow me to create, read, update, and delete data effectively in relational databases. I have a good understanding of SQL queries, joins, triggers, and transactions. My understanding allows me to design normalized databases and write efficient queries. I am also familiar with using Object Relational Mappers such as SQLAlchemy.", 
         color: '#336791', 
         proficiency: 5 
+    },
+    { 
+        name: "GitHub", 
+        icon: "/images/github.svg", 
+        description: "I am proficient in using GitHub for version control. This includes creating repositories, branching, merging, handling conflicts, and using pull requests effectively. Additionally, I have used GitHub actions for CI/CD pipeline setup and understand the value of collaboration and open source.", 
+        color: '#181717', 
+        proficiency: 7 
+    },
+    { 
+        name: "GraphQL", 
+        icon: "/images/graphql.svg", 
+        description: "I have substantial experience with GraphQL, having utilized it on both client and server sides. In the front-end, I've used it with Apollo Client to manage data in React applications. On the back-end, I've constructed robust and efficient GraphQL servers with Apollo in Node.js.", 
+        color: '#E434AA', 
+        proficiency: 6 
     }
     
 ]

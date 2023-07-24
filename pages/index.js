@@ -223,11 +223,11 @@ const skills = [
                 <div className="absolute flex flex-row justify-around button-pos">
                     <button className='bg-crab text-white lg:text-4xl text-md px-4 py-0 font-white flex flex-row items-center justify-center' onClick={addCrab}>
                         <span>+</span>
-                        <Image height={50} width={50} src='/images/crab-inner.svg'/>
+                        <Image height={50} width={50} alt='add-crab-button' src='/images/crab-inner.svg'/>
                     </button>
                     <button className='bg-crab text-white text-4xl px-4 py-0 font-white flex flex-row items-center justify-center' onClick={removeCrab}>
                         <span>-</span>
-                        <Image height={50} width={50} src='/images/crab-inner.svg'/>
+                        <Image height={50} width={50} alt='remove-crab-button' src='/images/crab-inner.svg'/>
                     </button>
                 </div>
 

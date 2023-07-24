@@ -18,7 +18,6 @@ import { Reveal } from 'react-awesome-reveal';
 import AnimatedLogo from '@/components/AnimatedLogo';
 
 
-
 const useParallax = (value, distance) =>{
     return useTransform(value, [0, 1], [-distance, distance]);
 }  

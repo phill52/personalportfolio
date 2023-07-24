@@ -9,6 +9,7 @@ const SkillDetail = ({skill}) => {
       from: { width: '0%' },
       to: { width: `${rating*10}%` },
       config: { duration: 150*rating }
+
     });
 
     const lines = [];
@@ -23,6 +24,7 @@ const SkillDetail = ({skill}) => {
             borderRight: '1px solid #000',
             position: 'absolute',
             zIndex: 20
+
           }}
         />
       );
@@ -32,6 +34,7 @@ const SkillDetail = ({skill}) => {
       {lines}
       <animated.div style={{ ...props, background: `${color}`, height: '1.5rem', borderTopLeftRadius: 50, borderBottomLeftRadius: 50, zIndex:10}} />
       <div style={{background: '#D9D9D9', width: '100%', height: '1.5rem', position: 'absolute', borderRadius: 50, zIndex:0}}/>
+
     </div>
     )
   }
@@ -42,6 +45,7 @@ const SkillDetail = ({skill}) => {
           <h3 className='lg:text-4xl text-2xl'>{skill.name}</h3>
           <SkillBar rating={skill.proficiency} color={skill.color} />
           <p className='lg:text-3xl text-lg'>{skill.description}</p>
+
         </div>
       </div>
   )

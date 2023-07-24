@@ -371,8 +371,8 @@ const skills = [
                             Looking forward to hearing from you! <br/>
                             Best, Phillip
                             </p>
-                            <div className='text-center text-pearl text-sm self-end justify-self-end webring'>
-                                <div id="webring" class='text-center pt-10'>
+                            <div className='webring'>
+                                <div id="webring">
                                 </div>
                             </div>
                     </Reveal>

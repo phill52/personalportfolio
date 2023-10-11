@@ -161,21 +161,21 @@ const skills = [
     
     return (
         <>
-        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 text-raisin py-4`}>
+        <header className={`fixed top-0 z-50 w-full text-center transition-colors duration-500 text-raisin py-4 `}>
             <ul className="lg:flex md:flex justify-around py-2 hidden ">
-                <li>
-                    <a href="#home" className="text-lg font-bold">Home</a>
+                <li className='header-item'>
+                    <a href="#home" className="text-lg font-bold ">Home</a>
                 </li>
-                <li>
+                <li className='header-item'>
                     <a href="#about" className="text-lg font-bold">About Me</a>
                 </li>
-                <li>
+                <li className='header-item'> 
                     <a href="#skills" className="text-lg font-bold">My Skills</a>
                 </li>
-                <li>
+                <li className='header-item'>
                     <a href="#projects" className="text-lg font-bold">Projects</a>
                 </li>
-                <li>
+                <li className='header-item'>
                     <a href="#contact" className="text-lg font-bold">Contact me</a>
                 </li>
             </ul>

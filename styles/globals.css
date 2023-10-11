@@ -408,3 +408,9 @@ button{
 .webring a:hover{
   color: #0A555A;
 }
+
+.header-item{
+  background: linear-gradient(0deg, rgba(240,231,216,0.2) -50%, rgba(240,231,216,1) 100%);
+  padding: 1rem;
+  border-radius: 10rem;
+}

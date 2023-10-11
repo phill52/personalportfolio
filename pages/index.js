@@ -362,12 +362,14 @@ const skills = [
                         <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>I&apos;m currently open to work in the NYC-NJ area or remote, and love tackling interesting problems. If you&apos;re interested in discussing potential roles, collaborating on a project, or even just chatting about the latest in technology, don&apos;t hesitate to get in touch. I&apos;m always up for a good tech talk!
                             <br/>
                             Feel free to reach out to me
-                            <br/>                            
+                            <br/>  
+                        </p>                          
                             <div className="flex flex-row gap-x-2 justify-center">
                                 <AnimatedLogo src='/images/email.svg' href='mailto:paner225@gmail.com' width={40} height={40}/>
                                 <AnimatedLogo src='/images/linkedin.svg' href='https://www.linkedin.com/in/panerine/' width={40} height={40}/>
                                 <AnimatedLogo src='/images/github.svg' href='https://github.com/phill52' width={40} height={40}/>
                             </div>
+                            <p className='text-pearl lg:text-3xl text-lg z-10 font-bold'>
                             Looking forward to hearing from you! <br/>
                             Best, Phillip
                             </p>
